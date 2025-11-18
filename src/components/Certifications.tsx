@@ -1,35 +1,42 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Award } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Award, ExternalLink } from "lucide-react";
 
 const Certifications = () => {
   const certifications = [
     {
       organization: "Innomatics Research Labs",
-      title: "Web Development Workshop",
-      period: "April 28, 2025 - May 2, 2025",
+      title: "Data Science Internship",
+      period: "October 2024",
       skills: [
-        "Completed workshop covering HTML, CSS, JavaScript, and responsive web design",
-        "Gained practical experience in front-end and basic back-end development",
-        "Learned version control (Git) and deployment fundamentals for modern web applications"
+        "Comprehensive internship covering data science fundamentals and practical applications"
       ]
     },
     {
-      organization: "BITS Hyderabad TechXcelerate",
-      title: "AI/ML Foundations",
-      period: "March 22, 2025 - November 8, 2025",
-      skills: []
+      organization: "BITS Hyderabad",
+      title: "Python for Data Science",
+      period: "December 2023",
+      skills: [
+        "Intensive 2-day workshop on Python programming for data science applications"
+      ]
     },
     {
       organization: "Oracle",
-      title: "Fundamentals of AI and Machine Learning using Python",
-      period: "2025",
+      title: "Java Programming",
+      period: "June 2024",
       skills: [
-        "Data pre-processing, analysis, and visualization techniques",
-        "Supervised & Unsupervised learning (Regression, Classification, Clustering)",
-        "Basics of Neural Networks and model evaluation methods",
-        "Basics of modern Agentic AI, theory of different methods used to build such models"
+        "Core Java programming concepts and object-oriented programming principles"
       ]
+    },
+    {
+      organization: "GDG in partnership with Google",
+      title: "Google Skills Bootcamp",
+      period: "2024 - Present",
+      skills: [
+        "Comprehensive training program in modern development skills"
+      ],
+      link: "https://www.skills.google/public_profiles/f24de91e-b8c8-46ca-a86d-468590314391"
     }
   ];
 
@@ -67,7 +74,7 @@ const Certifications = () => {
                 </CardDescription>
               </CardHeader>
               {cert.skills.length > 0 && (
-                <CardContent>
+                <CardContent className="space-y-3">
                   <ul className="space-y-2">
                     {cert.skills.map((skill, idx) => (
                       <li key={idx} className="text-xs text-muted-foreground flex items-start">
@@ -76,6 +83,14 @@ const Certifications = () => {
                       </li>
                     ))}
                   </ul>
+                  {cert.link && (
+                    <Button variant="outline" size="sm" className="w-full" asChild>
+                      <a href={cert.link} target="_blank" rel="noopener noreferrer">
+                        View Profile
+                        <ExternalLink className="w-4 h-4 ml-2" />
+                      </a>
+                    </Button>
+                  )}
                 </CardContent>
               )}
             </Card>
